@@ -571,7 +571,7 @@ export default function SmartBundleQuiz() {
                         <div className="w-[1px] h-6 sm:h-8 bg-neutral-100" />
                         <div className="text-center md:text-right">
                           <p className="text-[8px] sm:text-[9px] font-bold text-neutral-400 uppercase tracking-widest mb-1">Quality</p>
-                          <p className="text-sm sm:text-lg font-light">Institutional</p>
+                          <p className="text-sm sm:text-lg font-light">Premium</p>
                         </div>
                       </div>
                     </div>

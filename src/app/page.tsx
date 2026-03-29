@@ -77,18 +77,22 @@ export default async function CataloguePage() {
 
       {/* Hero Section */}
       <header className="relative overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-18 lg:pt-28 lg:pb-20">
-        {/* YouTube Video Background with Image Fallback */}
+        {/* HD Editorial Video Background */}
         <div 
           className="absolute inset-0 z-0 bg-neutral-900 overflow-hidden"
         >
-          <iframe
-            className="absolute left-1/2 -translate-x-1/2 min-h-full pointer-events-none top-1/2 md:top-0 -translate-y-1/2 md:translate-y-0 w-[100vw] md:w-[115vw] h-[56.25vw] md:h-[115vh] min-w-[177.77vh] md:min-w-full md:aspect-video"
-            src="https://www.youtube.com/embed/vvhAGbOV24Q?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&autohide=1&modestbranding=1&playsinline=1&playlist=vvhAGbOV24Q&rel=0&vq=hd1080"
-            allow="autoplay; encrypted-media"
-            style={{ filter: "brightness(0.75) contrast(1.1)" }}
-          />
-          <div className="absolute inset-0 bg-black/25" />
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#f8f9fa] via-[#f8f9fa]/60 to-transparent" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover object-top select-none pointer-events-none"
+            style={{ filter: "brightness(0.7) contrast(1.05)" }}
+          >
+            <source src="/editorial/mono-supplies.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#f8f9fa] via-[#f8f9fa]/40 to-transparent" />
         </div>
 
         <div className="mx-auto max-w-[1440px] w-full px-4 sm:px-6 lg:px-12 relative z-10 text-center">

@@ -43,6 +43,51 @@ const itemVariants: Variants = {
   },
 };
 
+const TrustMarkers = ({ className }: { className?: string }) => (
+  <motion.div 
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+    className={cn("grid grid-cols-4 gap-4 mt-auto pt-6 mb-4 border-t border-neutral-100", className)}
+  >
+    <div className="flex flex-col gap-2 items-center text-center">
+      <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+        <ShieldCheck className="w-3.5 h-3.5 text-neutral-400" />
+      </div>
+      <div className="space-y-0.5">
+        <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Premium<br/>Quality</h4>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-2 items-center text-center">
+      <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+        <Award className="w-3.5 h-3.5 text-neutral-400" />
+      </div>
+      <div className="space-y-0.5">
+        <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Global<br/>Warranty</h4>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-2 items-center text-center">
+      <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+        <Zap className="w-3.5 h-3.5 text-neutral-400" />
+      </div>
+      <div className="space-y-0.5">
+        <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Verified<br/>Safety</h4>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-2 items-center text-center">
+      <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+        <Truck className="w-3.5 h-3.5 text-neutral-400" />
+      </div>
+      <div className="space-y-0.5">
+        <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Fast<br/>Logistics</h4>
+      </div>
+    </div>
+  </motion.div>
+);
+
 export function ProductDetailModal({ product }: ProductDetailModalProps) {
   const { id, name, shortDescription, fullSpecifications, images, pricingTiers } = product;
   const { addItem, items, updateQuantity } = useRequisition();
@@ -126,49 +171,8 @@ export function ProductDetailModal({ product }: ProductDetailModalProps) {
             </motion.div>
           )}
 
-          {/* Institutional Trust Markers (Desktop Only) */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="hidden md:grid grid-cols-4 gap-4 mt-auto pt-6 mb-4 border-t border-neutral-100"
-          >
-            <div className="flex flex-col gap-2 items-center text-center">
-              <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-3.5 h-3.5 text-neutral-400" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Institutional<br/>Quality</h4>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 items-center text-center">
-              <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
-                <Award className="w-3.5 h-3.5 text-neutral-400" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Global<br/>Warranty</h4>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 items-center text-center">
-              <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
-                <Zap className="w-3.5 h-3.5 text-neutral-400" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Verified<br/>Safety</h4>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 items-center text-center">
-              <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
-                <Truck className="w-3.5 h-3.5 text-neutral-400" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-[8px] font-bold uppercase tracking-widest text-neutral-900 leading-tight">Institutional<br/>Logistics</h4>
-              </div>
-            </div>
-          </motion.div>
+          {/* Premium Trust Markers (Desktop Only) */}
+          <TrustMarkers className="hidden md:grid" />
         </div>
 
         {/* Right Column: Details & Pricing */}
@@ -263,6 +267,9 @@ export function ProductDetailModal({ product }: ProductDetailModalProps) {
               </motion.div>
             )}
           </motion.div>
+
+          {/* Premium Trust Markers (Mobile Bottom) */}
+          <TrustMarkers className="md:hidden mt-1 pt-3 border-t border-neutral-100 mb-2" />
         </motion.div>
       </div>
     </DialogContent>

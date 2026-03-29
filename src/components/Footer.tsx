@@ -14,12 +14,12 @@ export function Footer() {
         { name: "Precision Kettles", href: "#" },
         { name: "Silent Minibars", href: "#" },
         { name: "Global Hairdryers", href: "#" },
-        { name: "Institutional Safes", href: "#" },
+        { name: "Professional Safes", href: "#" },
         { name: "Housekeeping Essentials", href: "#" },
       ],
     },
     {
-      title: "Institutional",
+      title: "Professional",
       links: [
         { name: "Sustainability Charter", href: "#" },
         { name: "Star-Rating Standards", href: "#" },
@@ -52,7 +52,7 @@ export function Footer() {
             </Link>
             
             <p className="text-neutral-500 font-light leading-relaxed max-w-sm text-sm sm:text-base text-justify">
-              The Invisible Concierge. Curating the world&apos;s most silent, high-performance essentials for hospitality professionals. Engineered for 24/7 institutional excellence since 2012.
+              The Invisible Concierge. Curating the world&apos;s most silent, high-performance essentials for hospitality professionals. Engineered for 24/7 professional excellence since 2012.
             </p>
 
             <div className="flex gap-4 pt-4">
