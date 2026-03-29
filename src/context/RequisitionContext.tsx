@@ -23,6 +23,8 @@ interface RequisitionContextType {
   totalAmount: number;
   getItemPrice: (item: CartItem) => number;
   getItemTierName: (item: CartItem) => string;
+  isCartOpen: boolean;
+  setIsCartOpen: (open: boolean) => void;
 }
 
 const RequisitionContext = createContext<RequisitionContextType | undefined>(undefined);
@@ -30,6 +32,7 @@ const RequisitionContext = createContext<RequisitionContextType | undefined>(und
 export function RequisitionProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Load from localStorage
   useEffect(() => {
@@ -144,6 +147,8 @@ export function RequisitionProvider({ children }: { children: React.ReactNode })
         totalAmount,
         getItemPrice,
         getItemTierName,
+        isCartOpen,
+        setIsCartOpen,
       }}
     >
       {children}

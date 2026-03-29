@@ -28,7 +28,9 @@ export function RequisitionCart() {
     setAllQuantities,
     resetQuantities,
     getItemPrice,
-    getItemTierName
+    getItemTierName,
+    isCartOpen,
+    setIsCartOpen
   } = useRequisition();
 
   const router = useRouter();
@@ -70,7 +72,7 @@ export function RequisitionCart() {
   };
 
   return (
-    <Dialog onOpenChange={handleOpenChange}>
+    <Dialog open={isCartOpen} onOpenChange={setIsCartOpen}>
       <DialogTrigger
         render={
           <Button variant="ghost" className="relative p-1.5 hover:bg-neutral-100 rounded transition-colors flex items-center justify-center cursor-pointer">

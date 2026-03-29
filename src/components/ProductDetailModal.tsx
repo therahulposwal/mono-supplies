@@ -90,7 +90,7 @@ const TrustMarkers = ({ className }: { className?: string }) => (
 
 export function ProductDetailModal({ product }: ProductDetailModalProps) {
   const { id, name, shortDescription, fullSpecifications, images, pricingTiers } = product;
-  const { addItem, items, updateQuantity } = useRequisition();
+  const { addItem, items, updateQuantity, setIsCartOpen } = useRequisition();
   const [modalImageIndex, setModalImageIndex] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
 
@@ -240,44 +240,76 @@ export function ProductDetailModal({ product }: ProductDetailModalProps) {
             </motion.div>
           </div>
 
-          <motion.div variants={itemVariants} className="mt-auto">
-            {isInCart ? (
-              <div className="flex items-center justify-between w-full mt-4 sm:mt-8 bg-neutral-50 border border-neutral-200 rounded h-10 sm:h-14 p-1 sm:p-2 shadow-sm">
-                <motion.button
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateQuantity(id, -1)}
-                  className="h-full px-4 hover:bg-neutral-100 transition-colors rounded text-neutral-600 cursor-pointer"
+          <motion.div variants={itemVariants} className="mt-auto pb-4">
+            <AnimatePresence mode="wait">
+              {isInCart ? (
+                <motion.div 
+                  key="in-cart"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex gap-2 mt-4 sm:mt-8"
                 >
-                  <Minus className="w-5 h-5" />
-                </motion.button>
-                <div className="flex flex-col items-center">
-                  <span className="text-sm font-semibold text-neutral-900">{cartItem.quantity}</span>
-                  <span className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold">In Requisition</span>
-                </div>
-                <motion.button
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateQuantity(id, 1)}
-                  className="h-full px-4 hover:bg-neutral-100 transition-colors rounded text-neutral-600 cursor-pointer"
+                  <div className="flex flex-1 items-center justify-between bg-neutral-50 border border-neutral-200 rounded h-10 sm:h-14 p-1 sm:p-2 shadow-sm">
+                    <motion.button
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => updateQuantity(id, -1)}
+                      className="h-full px-4 hover:bg-neutral-100 transition-colors rounded text-neutral-600 cursor-pointer"
+                    >
+                      <Minus className="w-5 h-5" />
+                    </motion.button>
+                    <div className="flex flex-col items-center">
+                      <span className="text-sm font-semibold text-neutral-900">{cartItem.quantity}</span>
+                      <span className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold">In Requisition</span>
+                    </div>
+                    <motion.button
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => updateQuantity(id, 1)}
+                      className="h-full px-4 hover:bg-neutral-100 transition-colors rounded text-neutral-600 cursor-pointer"
+                    >
+                      <Plus className="w-5 h-5" />
+                    </motion.button>
+                  </div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      onClick={() => setIsCartOpen(true)}
+                      className="h-10 sm:h-14 px-4 sm:px-8 rounded bg-black text-white hover:bg-neutral-800 transition-all font-bold tracking-wider text-[10px] uppercase cursor-pointer shadow-lg"
+                    >
+                      View Cart
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="add-to-cart"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <Plus className="w-5 h-5" />
-                </motion.button>
-              </div>
-            ) : (
-              <motion.div
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Button 
-                  onClick={handleAdd}
-                  className={cn(
-                    "w-full mt-4 sm:mt-8 rounded h-10 sm:h-14 text-sm sm:text-lg font-light tracking-wide shadow-xl transition-all cursor-pointer",
-                    isAdded ? "bg-neutral-100 text-neutral-900 border border-neutral-200" : "bg-black text-white hover:bg-neutral-800"
-                  )}
-                >
-                  {isAdded ? "Added to Requisition" : "Add to Requisition"}
-                </Button>
-              </motion.div>
-            )}
+                  <Button 
+                    onClick={handleAdd}
+                    className={cn(
+                      "w-full mt-4 sm:mt-8 rounded h-10 sm:h-14 text-sm sm:text-lg font-light tracking-wide shadow-xl transition-all cursor-pointer",
+                      isAdded ? "bg-neutral-100 text-neutral-900 border border-neutral-200" : "bg-black text-white hover:bg-neutral-800"
+                    )}
+                  >
+                    {isAdded ? "Added to Requisition" : "Add to Requisition"}
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           {/* Premium Trust Markers (Mobile Bottom) */}
