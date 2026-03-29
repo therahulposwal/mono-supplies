@@ -1,0 +1,65 @@
+
+> mono-supplies@0.1.0 lint
+> eslint
+
+
+/Users/rahulposwal/Documents/mono-supplies/src/app/quiz/page.tsx
+    7:10  warning  'Progress' is defined but never used      @typescript-eslint/no-unused-vars
+   22:3   warning  'Coffee' is defined but never used        @typescript-eslint/no-unused-vars
+   24:3   warning  'Users' is defined but never used         @typescript-eslint/no-unused-vars
+   27:3   warning  'Landmark' is defined but never used      @typescript-eslint/no-unused-vars
+  135:35  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  144:35  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  171:50  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  179:24  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  184:25  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  184:33  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/rahulposwal/Documents/mono-supplies/src/components/CatalogueContent.tsx
+  52:35  warning  'idx' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/rahulposwal/Documents/mono-supplies/src/components/EditorialScene.tsx
+    4:13  warning  'motion' is defined but never used                               @typescript-eslint/no-unused-vars
+    6:10  warning  'cn' is defined but never used                                   @typescript-eslint/no-unused-vars
+    9:10  warning  'ChevronRight' is defined but never used                         @typescript-eslint/no-unused-vars
+   53:10  warning  'activeHotspot' is assigned a value but never used               @typescript-eslint/no-unused-vars
+   53:25  warning  'setActiveHotspot' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  111:23  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  111:47  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/rahulposwal/Documents/mono-supplies/src/components/PrestigeMarquee.tsx
+  47:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/rahulposwal/Documents/mono-supplies/src/components/PricingTable.tsx
+  35:19  warning  'isBase' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/rahulposwal/Documents/mono-supplies/src/components/ProductCard.tsx
+   9:16  warning  'Minus' is defined but never used              @typescript-eslint/no-unused-vars
+  43:9   warning  'cartItem' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/rahulposwal/Documents/mono-supplies/src/components/RequisitionCart.tsx
+  10:3   warning  'DialogFooter' is defined but never used  @typescript-eslint/no-unused-vars
+  15:23  warning  'X' is defined but never used             @typescript-eslint/no-unused-vars
+  17:10  warning  'Separator' is defined but never used     @typescript-eslint/no-unused-vars
+
+/Users/rahulposwal/Documents/mono-supplies/src/context/RequisitionContext.tsx
+  42:47  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  46:11  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/rahulposwal/Documents/mono-supplies/src/context/RequisitionContext.tsx:46:11
+  44 |             pricingTiers: Array.isArray(item.pricingTiers) ? item.pricingTiers : []
+  45 |           }));
+> 46 |           setItems(sanitized);
+     |           ^^^^^^^^ Avoid calling setState() directly within an effect
+  47 |         }
+  48 |       } catch (e) {
+  49 |         console.error("Failed to parse cart storage", e);  react-hooks/set-state-in-effect
+
+✖ 27 problems (10 errors, 17 warnings)
+
