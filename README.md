@@ -1,7 +1,5 @@
 # Mono Supplies | B2B Procurement Excellence
 
-![Mono Supplies Banner](public/editorial/banner-preview.jpg)
-
 **The Invisible Concierge.**  
 Curated hospitality essentials — kettles, hair dryers, mini bars, safes, and more.  
 Architectural design meets institutional performance.
