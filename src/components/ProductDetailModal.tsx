@@ -108,6 +108,18 @@ export function ProductDetailModal({ product }: ProductDetailModalProps) {
   return (
     <DialogContent className="block sm:max-w-4xl md:max-w-5xl w-[95vw] md:w-full max-h-[90vh] overflow-hidden p-0 border-none bg-white rounded sm:rounded-lg shadow-2xl">
       <div className="flex flex-col md:flex-row h-full max-h-[90vh] overflow-y-auto w-full relative">
+        {/* Mobile-only Header (at the top) */}
+        <div className="md:hidden p-5 bg-white border-b border-neutral-100">
+          <DialogHeader className="text-left">
+            <DialogTitle className="text-xl font-light tracking-tight text-neutral-900 mb-1 leading-snug">
+              {name}
+            </DialogTitle>
+            <DialogDescription className="text-xs text-neutral-500 font-light leading-relaxed">
+              {shortDescription}
+            </DialogDescription>
+          </DialogHeader>
+        </div>
+
         {/* Left Column: Images & Gallery */}
         <div className="w-full md:w-1/2 bg-neutral-50 p-4 sm:p-8 flex flex-col gap-4 sm:gap-6">
           <motion.div 
@@ -182,7 +194,7 @@ export function ProductDetailModal({ product }: ProductDetailModalProps) {
           animate="visible"
           className="w-full md:w-1/2 p-5 sm:p-8 flex flex-col pt-6 sm:pt-8 bg-white"
         >
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="hidden md:block">
             <DialogHeader className="mb-4 sm:mb-8 text-left">
               <DialogTitle className="text-xl sm:text-3xl font-light tracking-tight text-neutral-900 mb-1 sm:mb-2 leading-snug">
                 {name}
