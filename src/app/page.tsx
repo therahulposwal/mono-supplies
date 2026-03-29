@@ -166,7 +166,7 @@ export default async function CataloguePage() {
             <p className="text-neutral-500 font-light tracking-wide uppercase text-xs">Awaiting Collection Sync...</p>
           </div>
         ) : (
-          <CatalogueContent products={products} categories={[{ id: "all", name: "All Collections", slug: "all" }, ...categories]} />
+          <CatalogueContent products={products} categories={[{ id: "all", name: "All Products", slug: "all" }, ...categories]} />
         )}
       </main>
 
