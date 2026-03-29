@@ -1,101 +1,80 @@
-# Mono Supplies | B2B Procurement Excellence
+# 🛋️ Mono Supplies 
 
-**The Invisible Concierge.**  
-Curated hospitality essentials — kettles, hair dryers, mini bars, safes, and more.  
-Architectural design meets institutional performance.
+### A Personal Take on High-End Hospitality Procurement
+
+I've always been fascinated by how the best hotels in the world manage their "silent" details—the perfect kettle, the heavy-duty hair dryer, the discrete safe. These are the things you don't notice unless they're perfect. 
+
+I built **Mono Supplies** as a personal project to explore that intersection of "Quiet Luxury" and technical efficiency. It's an experimental B2B platform that feels more like an editorial magazine than a standard procurement portal.
 
 ---
 
-## 🏛️ Vision
+## 💡 Why I Built This
 
-Mono Supplies is a premium B2B procurement platform designed for the modern hospitality sector. We provide a "Quiet Luxury" experience for hotel operators, offering a curated selection of essential items that blend seamlessly into high-end environments. 
+Most B2B platforms look like spreadsheets from the 90s. I wanted to see if I could build a procurement tool that felt as premium as the products it sells. 
 
-Our digital interface mirrors our physical products: it is silent, effortless, and impeccably polished.
+This project was a way for me to dive into:
+- **Next.js 16**: Pushing the boundaries of the latest React features.
+- **Tailwind CSS 4**: Experimenting with its updated engine for architectural styling.
+- **Framer Motion**: Creating cinematic transitions that don't feel "gimmicky."
+- **Institutional UX**: Solving complex B2B flows (like volume tiered pricing) without the clutter.
 
-## ✨ Key Features
+---
 
-- **Cinematic Shopping Experience**: HD editorial video backgrounds and fluid Framer Motion transitions create an immersive atmosphere.
-- **Smart Bundle Quiz**: An intelligent recommendation engine that helps hotel operators curate the perfect selection for their property size and aesthetic.
-- **B2B Requisition Flow**: A sophisticated multi-step inquiry system that handles volume pricing, SKU management, and institutional logistics.
-- **Micro-interactions**: Subtle, high-end animations and hover effects that enhance the procurement journey without distraction.
-- **Mobile-First Responsive Design**: Optimized for on-the-go procurement, ensuring a seamless experience across all device types.
+## ✨ Things I'm Proud Of
 
-## 🛠️ Technology Stack
+- **The "Invisible Concierge" Aesthetic**: I spent way too much time getting the corner radiuses and background blurs just right. Everything follows a strict 4px grid to maintain that architectural feel.
+- **Cinematic Experience**: The site uses HD video backgrounds and fluid motion to guide you through the catalogue. It's meant to be immersive.
+- **Smart Bundle Quiz**: Instead of just lists, I built an interactive quiz that helps a "hotel owner" (me, in my imagination) figure out exactly what they need based on their room count and vibe.
+- **The Requisition Flow**: I built a custom multi-step cart system that handles volume-based pricing and generates clean inquiry forms for institutional orders.
 
-| Layer | Technology |
-| :--- | :--- |
-| **Framework** | [Next.js 16 (App Router)](https://nextjs.org/) |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) |
-| **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) / [Lucide React](https://lucide.dev/) |
-| **Animations** | [Framer Motion](https://www.framer.com/motion/) |
-| **Database/Auth** | [Supabase](https://supabase.com/) |
-| **UI Components** | [Shadcn UI](https://ui.shadcn.com/) / [Base UI](https://base-ui.com/) |
+---
 
-## 🚀 Getting Started
+## 🛠️ The Tech I Used
 
-### Prerequisites
+I wanted to keep the stack modern and lean:
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS 4 & Lucide Icons
+- **Motion**: Framer Motion for all those smooth transitions
+- **Backend**: Supabase for the product database
+- **Components**: A mix of Shadcn UI and custom components to keep everything uniquely "Mono."
 
-- Node.js 18+ 
-- NPM / Yarn / PNPM
-- A Supabase project (for product data)
+---
 
-### Installation
+## 🚀 How to Run It Locally
 
-1. **Clone the repository:**
+If you want to play around with the code or see the animations in action:
+
+1. **Clone the repo:**
    ```bash
    git clone https://github.com/therahulposwal/mono-supplies.git
    cd mono-supplies
    ```
 
-2. **Install dependencies:**
+2. **Setup your environment:**
+   Create a `.env.local` with your Supabase keys:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+   ```
+
+3. **Install & Run:**
    ```bash
    npm install
-   ```
-
-3. **Environment Setup:**
-   Create a `.env.local` file in the root directory and add your Supabase credentials:
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
-
-4. **Run the development server:**
-   ```bash
    npm run dev
    ```
 
-5. **Open the application:**
-   Navigate to [http://localhost:3000](http://localhost:3000) to view the platform.
-
-## 📁 Project Structure
-
-```text
-mono-supplies/
-├── src/
-│   ├── app/            # Next.js App Router (pages & layouts)
-│   ├── components/     # Atomic UI components & layout sections
-│   ├── context/        # React Context (Requisition & State)
-│   ├── lib/            # Types, utilities, and Supabase client
-│   └── styles/         # Global CSS & Tailwind configuration
-├── public/             # Static assets (Editorial videos, images, logos)
-├── supabase/           # Database schemas & migrations
-└── ...                 # Configuration files (TS, ESLint, PostCSS)
-```
-
-## 🎨 Design Principles: "Quiet Luxury"
-
-- **Geometric Consistency**: 4px corner radiuses across all interactive elements.
-- **Refined Typography**: Using Geist Sans and Geist Mono for an architectural, minimalist feel.
-- **Harmonious Palette**: A neutral-heavy palette (`#f8f9fa`, `#191c1d`) with subtle contrast.
-- **Institutional Trust**: Integration of "Prestige Marquees" and authentic trust markers to establish B2B authority.
+Open [http://localhost:3000](http://localhost:3000) and you're good to go.
 
 ---
 
-## 📄 License
+## 📁 A Peek Under the Hood
 
-Private/Proprietary — All rights reserved.
+- `src/app`: Where all the Next.js magic happens.
+- `src/components`: The atoms of the UI—from buttons to the product detail modals.
+- `src/context`: Where I manage the requisition (cart) state.
+- `src/styles`: The core of the "Quiet Luxury" tokens.
 
 ---
 
-> *"Design is not just what it looks like and feels like. Design is how it works."*  
-> — **Mono Supplies Engineering Team**
+> *"Design is how it works, and procurement is how it arrives."*  
+> — **Rahul Poswal** (Creator)
