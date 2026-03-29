@@ -28,8 +28,10 @@ import {
   Landmark,
   ArrowRight,
   ArrowLeft,
-  RotateCcw
+  RotateCcw,
+  Check
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type QuizStep = "PROPERTY_TYPE" | "ROOM_COUNT" | "STAR_RATING" | "RESULTS";
 
@@ -159,6 +161,7 @@ export default function SmartBundleQuiz() {
   const [starRating, setStarRating] = useState<string | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isAdded, setIsAdded] = useState(false);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -273,6 +276,8 @@ export default function SmartBundleQuiz() {
 
   const handleAddBundle = () => {
     recommendedProducts.forEach((product) => addItem(product));
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 2000);
   };
 
   return (
@@ -542,12 +547,22 @@ export default function SmartBundleQuiz() {
                         </p>
                       </div>
                       <motion.button 
-                        whileHover={{ scale: 1.01, backgroundColor: "#111" }}
-                        whileTap={{ scale: 0.99 }}
+                        whileHover={!isAdded ? { scale: 1.01, backgroundColor: "#111" } : {}}
+                        whileTap={!isAdded ? { scale: 0.99 } : {}}
                         onClick={handleAddBundle}
-                        className="w-full bg-black text-white rounded-lg h-14 shadow-lg tracking-[0.3em] uppercase text-[9px] font-bold cursor-pointer transition-colors"
+                        className={cn(
+                          "w-full rounded-lg h-14 shadow-lg tracking-[0.3em] uppercase text-[9px] font-bold cursor-pointer transition-all duration-500",
+                          isAdded 
+                            ? "bg-neutral-100 text-neutral-500 shadow-none" 
+                            : "bg-black text-white"
+                        )}
                       >
-                        Add to Requisition
+                        {isAdded ? (
+                          <span className="flex items-center justify-center gap-2">
+                            <Check className="w-3.5 h-3.5" />
+                            Added
+                          </span>
+                        ) : "Add to Requisition"}
                       </motion.button>
                       <p className="text-[8px] sm:text-[9px] text-center text-neutral-500 tracking-[0.1em] font-medium uppercase">
                         Requires official verification by MONO procurement team
@@ -556,7 +571,7 @@ export default function SmartBundleQuiz() {
                   </motion.div>
 
                   {/* Inventory Manifest */}
-                  <div className="pt-8 sm:pt-14 space-y-8 sm:space-y-10">
+                  <div className="space-y-8 sm:space-y-10 text-neutral-900">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-neutral-100 pb-6 text-neutral-900">
                       <div className="space-y-2 text-center md:text-left">
                         <span className="text-[7px] sm:text-[8px] font-bold text-[#B8860B] tracking-[0.4em] uppercase">
