@@ -84,6 +84,7 @@ const getBundleData = (starRating: string | null) => {
           "bbbbbbbb-0000-0000-0000-000000000001", // Wall Hair Dryer
           "cccccccc-0000-0000-0000-000000000001", // Silent Fridge
           "dddddddd-0000-0000-0000-000000000001", // Standard Safe
+          "eeeeeeee-0000-0000-0000-000000000003", // Heavy-Duty Linen Trolley
         ],
       };
     case "Mid-range/4-star":
@@ -94,6 +95,7 @@ const getBundleData = (starRating: string | null) => {
           "bbbbbbbb-0000-0000-0000-000000000003", // Folding Hair Dryer
           "cccccccc-0000-0000-0000-000000000002", // Glass Minibar
           "dddddddd-0000-0000-0000-000000000001", // Standard Safe
+          "eeeeeeee-0000-0000-0000-000000000001", // Premium Housekeeping Cart
         ],
       };
     case "Premium/5-star":
@@ -104,6 +106,7 @@ const getBundleData = (starRating: string | null) => {
           "bbbbbbbb-0000-0000-0000-000000000002", // Pro Hair Dryer
           "cccccccc-0000-0000-0000-000000000003", // Smart Minibar
           "dddddddd-0000-0000-0000-000000000002", // Biometric Safe
+          "eeeeeeee-0000-0000-0000-000000000002", // Compact Room Service Cart
         ],
       };
     default:
