@@ -281,7 +281,7 @@ export function ProductDetailModal({ product }: ProductDetailModalProps) {
           </motion.div>
 
           {/* Premium Trust Markers (Mobile Bottom) */}
-          <TrustMarkers className="md:hidden mt-1 pt-3 border-t border-neutral-100 mb-2" />
+          <TrustMarkers className="md:hidden mt-3 pt-4 border-t border-neutral-100 mb-2" />
         </motion.div>
       </div>
     </DialogContent>
