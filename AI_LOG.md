@@ -1,11 +1,5 @@
 # 🤖 The Human-AI Collaboration: Building Mono Supplies
 
-This isn't just another repo; it's a "silent" partnership. Throughout the development of **Mono Supplies**, I worked alongside an AI (Antigravity/Gemini) to see if we could create something that didn't just *work*, but *felt* premium. 
-
-Here’s the story of how it happened.
-
----
-
 ### The Beginning: Blueprinting the Foundation
 One of the biggest strengths of our collaboration was the **architectural phase**. I used the AI as a sounding board to design the entire product architecture, from the Next.js App Router structure down to the Supabase database schema. It helped me map out how products, categories, and pricing tiers would relate to each other, ensuring the technical foundation was rock-solid.
 
